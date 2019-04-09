@@ -1,0 +1,17 @@
+[package]
+name = "dinput8"
+version = "0.1.0"
+authors = ["lcdr"]
+edition = "2018"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+repository = "https://bitbucket.org/lcdr/mod_loader/"
+
+[dependencies]
+winapi = { version = "0.3.6", features = ["consoleapi", "libloaderapi", "processenv", "winbase"] }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
