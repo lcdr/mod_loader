@@ -5,7 +5,7 @@ authors = ["lcdr"]
 edition = "2018"
 readme = "README.md"
 license = "AGPL-3.0-or-later"
-repository = "https://bitbucket.org/lcdr/mod_loader/"
+repository = "https://github.com/lcdr/mod_loader/"
 
 [dependencies]
 winapi = { version = "0.3.6", features = ["consoleapi", "libloaderapi", "processenv", "winbase"] }
