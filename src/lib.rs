@@ -1,4 +1,4 @@
-#![feature(asm)]
+#![feature(llvm_asm)]
 #![feature(naked_functions)]
 
 use std::ffi::{CStr, CString};
@@ -96,8 +96,8 @@ fn load_mods() -> Res<()> {
 	Ok(())
 }
 
-#[naked]#[no_mangle]pub extern "system" fn DirectInput8Create()  { unsafe { asm!("jmp *$0":: "r"(FUNCS[0])); }}
-#[naked]#[no_mangle]pub extern "system" fn DllCanUnloadNow()     { unsafe { asm!("jmp *$0":: "r"(FUNCS[1])); }}
-#[naked]#[no_mangle]pub extern "system" fn DllGetClassObject()   { unsafe { asm!("jmp *$0":: "r"(FUNCS[2])); }}
-#[naked]#[no_mangle]pub extern "system" fn DllRegisterServer()   { unsafe { asm!("jmp *$0":: "r"(FUNCS[3])); }}
-#[naked]#[no_mangle]pub extern "system" fn DllUnregisterServer() { unsafe { asm!("jmp *$0":: "r"(FUNCS[4])); }}
+#[naked]#[no_mangle]pub extern "system" fn DirectInput8Create()  { unsafe { llvm_asm!("jmp *$0":: "r"(FUNCS[0])); }}
+#[naked]#[no_mangle]pub extern "system" fn DllCanUnloadNow()     { unsafe { llvm_asm!("jmp *$0":: "r"(FUNCS[1])); }}
+#[naked]#[no_mangle]pub extern "system" fn DllGetClassObject()   { unsafe { llvm_asm!("jmp *$0":: "r"(FUNCS[2])); }}
+#[naked]#[no_mangle]pub extern "system" fn DllRegisterServer()   { unsafe { llvm_asm!("jmp *$0":: "r"(FUNCS[3])); }}
+#[naked]#[no_mangle]pub extern "system" fn DllUnregisterServer() { unsafe { llvm_asm!("jmp *$0":: "r"(FUNCS[4])); }}
